@@ -1,6 +1,37 @@
-<%= @warehouse.name %>
+<section>
 
-<%= @warehouse.description %>
-<%= @warehouse.address %>
+  <fieldset>
+    <legend><h2><%= @warehouse.name %></h2></legend>
+    <legend>
+      <p>
+        <strong>Descrição: </strong>
+        <%= @warehouse.description %>
+      </p>
+      <p>
+        <strong>CODE: </strong>
+        <%= @warehouse.code %>
+      </p>
+       <p>
+        <strong>Endereço: </strong>
+        <%= @warehouse.address %>
+      </p>
+       <p>
+        <strong>Cidade: </strong>
+        <%= @warehouse.city %>
+      </p>
+      <p>
+        <strong>CEP: </strong>
+        <%= @warehouse.cep %>
+      </p>
+      <p>
+        <strong>Area: </strong>
+        <%= @warehouse.area %>m2
+      </p>
+    </legend>
+  </fieldset>
+
+</section>
+
+
 
 <%= link_to 'Voltar', root_path %>
