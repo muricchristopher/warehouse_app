@@ -25,7 +25,7 @@ describe 'Usuário visita tela inicial' do
     expect(page).to have_content("SDU")
     expect(page).to have_content("Rio de Janeiro")
     expect(page).to have_content(60000)
-    expect(page).to have_content("Macei")
+    expect(page).to have_content("Maceio")
     expect(page).to have_content("MCZ")
     expect(page).to have_content("Maceio")
     expect(page).to have_content(40000)
