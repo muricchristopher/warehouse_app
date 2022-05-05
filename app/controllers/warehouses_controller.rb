@@ -4,7 +4,7 @@ class WarehousesController < ApplicationController
   end
 
   def new
-    
+
   end
 
   def create
@@ -12,7 +12,9 @@ class WarehousesController < ApplicationController
 
     created_warehouse = Warehouse.new(warehouse_params)
 
-    created_warehouse.save()
+    if created_warehouse.save()
+     flash[:notice] = "Galpão cadastrado com sucesso!"
+    end
 
 
     redirect_to(root_path)

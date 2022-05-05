@@ -9,11 +9,15 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
   <body>
+    <div class="message">
+      <%= flash[:notice] %>
+    </div>
+
     <header>
       <h1>Galpões & Estoque</h1>
     </header>
+    
     <main>
       <%= yield %>
     </main>
