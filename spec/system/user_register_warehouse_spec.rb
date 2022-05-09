@@ -17,7 +17,7 @@ describe "Usuário cadastra um galpão" do
     expect(page).to have_field("CEP")
   end
 
-  it 'Com sucesso' do
+  it 'com sucesso' do
 
     visit(root_path)
 

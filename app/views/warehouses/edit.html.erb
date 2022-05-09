@@ -1,4 +1,4 @@
-<h1>Novo Galpão</h1>
+<h1>Editar Galpão</h1>
 
 <% if @errors %>
 <div class="alert alert-danger">
@@ -12,33 +12,33 @@
 
 <%= form_with model: @warehouse, local: true, data: { turbo: false }  do |f| %>  <div>
     <%= f.label :name %>
-    <%= f.text_field :name , placeholder:"Galpão São Paulo" %>
+    <%= f.text_field :name %>
   </div>
   <div>
     <%= f.label :description %>
-    <%= f.text_area :description , placeholder:"Um belo galpão em São Paulo" %>
+    <%= f.text_area :description %>
   </div>
   <div>
         <%= f.label :address %>
-        <%= f.text_field :address, placeholder: "Rua Marechal Tito, 2000" %>
+        <%= f.text_field :address %>
       </div>
       <div>
         <%= f.label :code %>
-        <%= f.text_field :code, placeholder:"Ex: GSP" %>
+        <%= f.text_field :code %>
       </div>
   <div>
     <%= f.label :city %>
-    <%= f.text_field :city, placeholder:"São Paulo" %>
+    <%= f.text_field :city %>
   </div>
   <div>
     <%= f.label :area %>
-    <%= f.number_field :area, placeholder:"Ex: 2000" %>
+    <%= f.number_field :area %>
   </div>
   <div>
     <%= f.label :cep %>
-    <%= f.text_field :cep, placeholder:"Ex: 08140-400"  %>
+    <%= f.text_field :cep  %>
   </div>
-  <%= f.submit 'Enviar'%>
+  <%= f.submit 'Salvar alterações'%>
 
 <%= link_to 'Voltar', root_path %>
 <% end %>

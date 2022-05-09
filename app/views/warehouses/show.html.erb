@@ -8,7 +8,7 @@
         <%= @warehouse.description %>
       </p>
       <p>
-        <strong>CODE: </strong>
+        <strong>Código: </strong>
         <%= @warehouse.code %>
       </p>
        <p>
@@ -33,5 +33,5 @@
 </section>
 
 
-
+<%= link_to 'Editar', edit_warehouse_path(@warehouse.id) %>
 <%= link_to 'Voltar', root_path %>
