@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+#warehouses{
+  display: flex;
+  flex: 1;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.field_with_errors input , .field_with_errors textarea{
+    border: 1px red solid;
+}
