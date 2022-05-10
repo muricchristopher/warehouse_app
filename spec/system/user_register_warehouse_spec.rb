@@ -31,7 +31,7 @@ describe "Usuário cadastra um galpão" do
     fill_in "Área",	with: '20000'
     fill_in "CEP",	with: "08140490"
 
-    click_on("Enviar")
+    click_on("Salvar")
 
     expect(current_path).to eq(root_path)
     expect(page).to have_content("Galpão cadastrado com sucesso!")
@@ -47,7 +47,7 @@ describe "Usuário cadastra um galpão" do
     fill_in "Nome",	with: ""
     fill_in "Descrição",	with: ""
 
-    click_on("Enviar")
+    click_on("Salvar")
 
     expect(page).to have_content("Galpão não cadastrado")
     expect(page).to have_content("Nome não pode ficar em branco")

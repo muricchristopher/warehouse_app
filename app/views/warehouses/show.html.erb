@@ -32,6 +32,8 @@
 
 </section>
 
+<%= button_to('Deletar Galpão', warehouse_path,
+          method: "delete", remote: true, data: { confirm: 'Are you sure?', disable_with: 'loading...' }) %>
 
-<%= link_to 'Editar', edit_warehouse_path(@warehouse.id) %>
+<%= link_to 'Editar', edit_warehouse_path %>
 <%= link_to 'Voltar', root_path %>

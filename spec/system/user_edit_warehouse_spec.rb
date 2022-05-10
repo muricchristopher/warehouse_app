@@ -19,7 +19,7 @@ describe 'Usuário registra um galpão' do
     expect(page).to have_field("CEP", with:first_warehouse.cep)
   end
 
-  it 'e com sucesso' do
+  it 'com sucesso' do
     first_warehouse = Warehouse.create!(name: "Galpão do Rio", code: "SDU", city:"Rio de Janeiro", area: 60_000, cep:"08140490", description:"Um belo galpão", address:"Rua")
 
     visit("/")
@@ -30,7 +30,7 @@ describe 'Usuário registra um galpão' do
     fill_in("Código", with:"GPT")
     fill_in("Descrição", with:"Galpão editado")
 
-    click_on("Salvar alterações")
+    click_on("Salvar")
 
     expect(page).to have_content("Galpão editado com sucesso!")
     expect(page).to have_content("Meu Galpão Personalizado")
@@ -39,7 +39,7 @@ describe 'Usuário registra um galpão' do
   end
 
   it 'com dados incompletos' do
-    first_warehouse = Warehouse.create!(name: "Galpão do Rio", code: "GPR", city:"Rio de Janeiro", area: 60_000, cep:"08140490", description:"Um belo galpão", address:"Rua")
+    Warehouse.create!(name: "Galpão do Rio", code: "GPR", city:"Rio de Janeiro", area: 60_000, cep:"08140490", description:"Um belo galpão", address:"Rua")
 
     visit("/")
     click_on("Galpão do Rio")
@@ -49,7 +49,7 @@ describe 'Usuário registra um galpão' do
     fill_in("Código", with:"")
     fill_in("Descrição", with:"Galpão editado")
 
-    click_on("Salvar alterações")
+    click_on("Salvar")
 
     expect(page).to have_content("Galpão não editado")
     expect(page).to have_content("Nome não pode ficar em branco")
