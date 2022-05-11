@@ -40,7 +40,7 @@ describe "Usuário cadastra um galpão" do
   end
 
   it 'com dados incompletos' do
-     visit(root_path)
+    visit(root_path)
 
     click_on("Cadastrar Galpão")
 
@@ -51,7 +51,7 @@ describe "Usuário cadastra um galpão" do
 
     expect(page).to have_content("Galpão não cadastrado")
     expect(page).to have_content("Nome não pode ficar em branco")
-    expect(page).to have_content("Nome não pode ficar em branco")
+    expect(page).to have_content("Descrição não pode ficar em branco")
   end
 
 end

@@ -8,33 +8,36 @@
 
 <% end %>
 
-<%= form_with model: @supplier, local: true, data: { turbo: false }  do |f| %>  <div>
+
+<%= form_with model: @supplier, local: true, data: { turbo: false }  do |f| %>
+
+  <div>
     <%= f.label :corporate_name %>
-    <%= f.text_field :corporate_name , placeholder:"Nome da Empresa" %>
+    <%= f.text_field :corporate_name , placeholder:"BRA Produções Limitadas LITDA" %>
   </div>
   <div>
-    <%= f.label :description %>
-    <%= f.text_area :description , placeholder:"Um belo galpão em São Paulo" %>
+    <%= f.label :brand_name %>
+    <%= f.text_field :brand_name , placeholder:"BRA Produções" %>
   </div>
   <div>
-        <%= f.label :address %>
-        <%= f.text_field :address, placeholder: "Rua Marechal Tito, 2000" %>
-      </div>
+    <%= f.label :registration_number %>
+    <%= f.text_field :registration_number , placeholder:"109.210.012/00001-89" %>
+  </div>
+  <div>
+    <%= f.label :full_address %>
+      <%= f.text_field :full_address, placeholder: "Rua Marechal Tito, 2000" %>
+  </div>
       <div>
-        <%= f.label :code %>
-        <%= f.text_field :code, placeholder:"Ex: GSP" %>
+        <%= f.label :city %>
+        <%= f.text_field :city, placeholder:"Guarulhos" %>
       </div>
   <div>
-    <%= f.label :city %>
-    <%= f.text_field :city, placeholder:"São Paulo" %>
+    <%= f.label :state %>
+    <%= f.text_field :state, placeholder:"São Paulo" %>
   </div>
   <div>
-    <%= f.label :area %>
-    <%= f.number_field :area, placeholder:"Ex: 2000" %>
-  </div>
-  <div>
-    <%= f.label :cep %>
-    <%= f.text_field :cep, placeholder:"Ex: 08140-  400"  %>
+    <%= f.label :email %>
+    <%= f.text_field :email, placeholder:"consultoria@braprodcoes.com.br" %>
   </div>
   <%= f.submit 'Salvar'%>
 <%end%>

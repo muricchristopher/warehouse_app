@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-describe 'Usuário registra um galpão' do
+describe 'Usuário edita um galpão' do
 
-  it 'a partir dos detalhes de um galpão' do
+  it 'a partir dos detalhes' do
 
     first_warehouse = Warehouse.create!(name: "Galpão do Rio", code: "SDU", city:"Rio de Janeiro", area: 60_000, cep:"08140490", description:"Um belo galpão", address:"Rua")
 

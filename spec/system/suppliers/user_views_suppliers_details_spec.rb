@@ -4,7 +4,7 @@ describe 'Usuário vê detalhes de um fornecedor' do
 
   it 'com informações adicionais' do
 
-    supplier = Supplier.create!(corporate_name: "ABA Produções LTDA", brand_name: "ABA", registration_number:"92348329432",full_address:"Rua Marechal dos Andares, 1212", city:"São Paulo",
+    supplier = Supplier.create!(corporate_name: "ABA Produções LTDA", brand_name: "ABA", registration_number:"59291534000167",full_address:"Rua Marechal dos Andares, 1212", city:"São Paulo",
     state:"São Paulo", email:"contato@abaproducuesltda.com.br")
 
     visit("/")
@@ -23,7 +23,7 @@ describe 'Usuário vê detalhes de um fornecedor' do
   end
 
   it 'e volta para a tela inicial' do
-    supplier = Supplier.create!(corporate_name: "ABA Produções LTDA", brand_name: "ABA", registration_number:"92348329432",full_address:"Rua Marechal dos Andares, 1212", city:"São Paulo",
+    supplier = Supplier.create!(corporate_name: "ABA Produções LTDA", brand_name: "ABA", registration_number:"59291534000167",full_address:"Rua Marechal dos Andares, 1212", city:"São Paulo",
     state:"São Paulo", email:"contato@abaproducuesltda.com.br")
 
     visit("/")
