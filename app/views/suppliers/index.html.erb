@@ -1,0 +1,26 @@
+
+
+<%= button_to('Cadastrar Fornecedor', new_supplier_path,
+          method: "get", remote: true, data: { confirm: 'Are you sure?', disable_with: 'loading...' }) %>
+
+<section id="suppliers" class="grid">
+  <% @suppliers.each do |w| %>
+    <div class="warehouse">
+      <h3><%= link_to w.brand_name, supplier_path(w.id) %></h3>
+      <dl>
+        <dt><b>Nome</b></dt>
+          <dd><%= w.corporate_name %></dd>
+        <dt><b>Cidade</b></dt>
+          <dd><%= w.city %></dd>
+        <dt><b>Estado</b></dt>
+        <dd><%= w.state %></dd>
+          <dt><b>Email</b></dt>
+          <dd><%= w.email %></dd>
+      </dl>
+    </div>
+  <% end %>
+
+  <% if(@suppliers.empty?)%>
+    <p>Nenhum fornecedor cadastrado!</p>
+  <% end %>
+</section>

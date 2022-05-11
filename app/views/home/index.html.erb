@@ -1,6 +1,8 @@
 
-<%= link_to 'Cadastrar Galpão', new_warehouse_path %>
-<section id="warehouses">
+<%= button_to('Cadastrar Galpão', new_warehouse_path,
+          method: "get", remote: true, data: { confirm: 'Tem certeza?', disable_with: 'carregando...' }) %>
+
+<section id="warehouses" class="grid">
   <% @warehouses.each do |w| %>
     <div class="warehouse">
       <h3><%= link_to w.name, warehouse_path(w.id) %></h3>

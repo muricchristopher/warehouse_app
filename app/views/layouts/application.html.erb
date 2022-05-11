@@ -19,10 +19,17 @@
 
     <header>
       <h1>Galpões & Estoque</h1>
+      <nav>
+        <%= link_to "Home", root_path%>
+        <span>|</span>
+        <%= link_to "Fornecedores", suppliers_path%>
+      </nav>
+      <hr>
     </header>
-    
+
     <main>
       <%= yield %>
     </main>
   </body>
 </html>
+
