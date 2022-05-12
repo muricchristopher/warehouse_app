@@ -1,24 +1,36 @@
-# README
+# Warehouse App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a study project of [Treinadev8](https://treinadev.com.br/) class from [CampusCode](https://www.campuscode.com.br/) to a warehouse logistics using TDD with RSpec/Capybara on Ruby on Rails. 
 
-Things you may want to cover:
+* Ruby: 3.0.4
+* Rails: 7.0.2
+ 
+## Install
 
-* Ruby version
+### Clone the repository
 
-* System dependencies
+```shell
+git clone git@github.com:murichristopher/warehouse_app.git
+cd warehouse_app
+```
 
-* Configuration
+### Install dependencies
 
-* Database creation
 
-* Database initialization
+```shell
+bundle install
+```
 
-* How to run the test suite
+## Create and migrate database
 
-* Services (job queues, cache servers, search engines, etc.)
+```shell
+rails db:create 
+rails db:migrate
+```
 
-* Deployment instructions
+## Serve
 
-* ...
+```shell
+rails s
+```
+
