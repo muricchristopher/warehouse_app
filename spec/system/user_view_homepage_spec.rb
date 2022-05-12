@@ -8,13 +8,13 @@ describe 'Usuário visita tela inicial' do
 
       visit("/")
 
-      expect(page).to have_content("Galpões & Estoque")  
+      expect(page).to have_content("Galpões & Estoque")
   end
 
   it 'e vê os galpões cadastrados' do
     #Arrange
-    Warehouse.create(name: "Rio", code: "SDU", city:"Rio de Janeiro", area: 60_000, cep:"08140490", description:"Um belo galpão", address:"Rua")
-    Warehouse.create(name: "Maceio", code: "MCZ", city:"Maceio", area: 40_000, cep:"08140490", description:"Um belo galpão", address:"Rua")
+    Warehouse.create(name: "Rio", code: "SDU", city:"Rio de Janeiro", area: 60_000, zip_code:"08140490", description:"Um belo galpão", address:"Rua")
+    Warehouse.create(name: "Maceio", code: "MCZ", city:"Maceio", area: 40_000, zip_code:"08140490", description:"Um belo galpão", address:"Rua")
 
     #Act
     visit("/")
@@ -34,7 +34,7 @@ describe 'Usuário visita tela inicial' do
   end
 
   it 'e não existem galpões cadastrados' do
-    
+
     visit("/")
 
     expect(page).to have_content("Nenhum galpão cadastrado!")

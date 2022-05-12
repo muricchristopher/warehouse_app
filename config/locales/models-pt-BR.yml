@@ -10,10 +10,10 @@
           area: "Área"
           address: "Endereço"
           code: "Código"
-          cep: "CEP"
+          zip_code: "CEP"
           city: "Cidade"
         supplier:
-          corporate_name: "Nome Empresarial"
+          corporate_name: "Razão Social"
           brand_name: "Nome Fantasia"
           registration_number: "CNPJ"
           full_address: "Endereço"

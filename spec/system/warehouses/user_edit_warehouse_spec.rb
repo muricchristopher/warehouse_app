@@ -4,7 +4,7 @@ describe 'Usuário edita um galpão' do
 
   it 'a partir dos detalhes' do
 
-    first_warehouse = Warehouse.create!(name: "Galpão do Rio", code: "SDU", city:"Rio de Janeiro", area: 60_000, cep:"08140490", description:"Um belo galpão", address:"Rua")
+    first_warehouse = Warehouse.create!(name: "Galpão do Rio", code: "SDU", city:"Rio de Janeiro", area: 60_000, zip_code:"08140490", description:"Um belo galpão", address:"Rua")
 
     visit("/")
     click_on("Galpão do Rio")
@@ -16,11 +16,11 @@ describe 'Usuário edita um galpão' do
     expect(page).to have_field("Código", with:first_warehouse.code)
     expect(page).to have_field("Cidade", with: first_warehouse.city)
     expect(page).to have_field("Área", with:first_warehouse.area)
-    expect(page).to have_field("CEP", with:first_warehouse.cep)
+    expect(page).to have_field("CEP", with:first_warehouse.zip_code)
   end
 
   it 'com sucesso' do
-    first_warehouse = Warehouse.create!(name: "Galpão do Rio", code: "SDU", city:"Rio de Janeiro", area: 60_000, cep:"08140490", description:"Um belo galpão", address:"Rua")
+    first_warehouse = Warehouse.create!(name: "Galpão do Rio", code: "SDU", city:"Rio de Janeiro", area: 60_000, zip_code:"08140490", description:"Um belo galpão", address:"Rua")
 
     visit("/")
     click_on("Galpão do Rio")
@@ -39,7 +39,7 @@ describe 'Usuário edita um galpão' do
   end
 
   it 'com dados incompletos' do
-    Warehouse.create!(name: "Galpão do Rio", code: "GPR", city:"Rio de Janeiro", area: 60_000, cep:"08140490", description:"Um belo galpão", address:"Rua")
+    Warehouse.create!(name: "Galpão do Rio", code: "GPR", city:"Rio de Janeiro", area: 60_000, zip_code:"08140490", description:"Um belo galpão", address:"Rua")
 
     visit("/")
     click_on("Galpão do Rio")

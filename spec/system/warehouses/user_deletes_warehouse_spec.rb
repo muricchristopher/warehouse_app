@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Usuário remove um galpão' do
   it 'com sucesso' do
-    Warehouse.create!(name: "Galpão do Rio", code: "GPR", city:"Rio de Janeiro", area: 60_000, cep:"08140490", description:"Um belo galpão", address:"Rua")
+    Warehouse.create!(name: "Galpão do Rio", code: "GPR", city:"Rio de Janeiro", area: 60_000, zip_code:"08140490", description:"Um belo galpão", address:"Rua")
 
     visit("/")
     click_on("Galpão do Rio")
@@ -17,8 +17,8 @@ describe 'Usuário remove um galpão' do
 
   it 'sem interferir nos demais' do
 
-    Warehouse.create(name: "Galpão Rio", code: "SDU", city:"Rio de Janeiro", area: 60_000, cep:"02140490", description:"Um belo galpão no Rio", address:"Rua")
-    Warehouse.create(name: "Galpão Maceio", code: "MCZ", city:"Maceio", area: 40_000, cep:"08140490", description:"Um belo galpão em Maceio", address:"Rua")
+    Warehouse.create(name: "Galpão Rio", code: "SDU", city:"Rio de Janeiro", area: 60_000, zip_code:"02140490", description:"Um belo galpão no Rio", address:"Rua")
+    Warehouse.create(name: "Galpão Maceio", code: "MCZ", city:"Maceio", area: 40_000, zip_code:"08140490", description:"Um belo galpão em Maceio", address:"Rua")
 
     visit("/")
 

@@ -8,7 +8,7 @@ describe 'Usuário cadastra um fornecedor' do
 
     click_on("Cadastrar Fornecedor")
 
-    expect(page).to have_field("Nome Empresarial")
+    expect(page).to have_field("Razão Social")
     expect(page).to have_field("Nome Fantasia")
     expect(page).to have_field("CNPJ")
     expect(page).to have_field("Endereço")
@@ -24,7 +24,7 @@ describe 'Usuário cadastra um fornecedor' do
 
     click_on("Cadastrar Fornecedor")
 
-    fill_in("Nome Empresarial", with:"ABA Produções LTDA")
+    fill_in("Razão Social", with:"ABA Produções LTDA")
     fill_in("Nome Fantasia", with:"ABA")
     fill_in("CNPJ", with:"59291534000167")
     fill_in("Endereço", with:"Rua Marechal dos Andares, 1212")
@@ -47,7 +47,7 @@ describe 'Usuário cadastra um fornecedor' do
     click_on("Fornecedores")
     click_on("Cadastrar Fornecedor")
 
-    fill_in("Nome Empresarial", with:"")
+    fill_in("Razão Social", with:"")
     fill_in("Nome Fantasia", with:"ABA")
     fill_in("CNPJ", with:"")
     fill_in("Endereço", with:"")
@@ -58,7 +58,7 @@ describe 'Usuário cadastra um fornecedor' do
     click_on("Salvar")
 
     expect(page).to have_content("Fornecedor não cadastrado")
-    expect(page).to have_content("Nome Empresarial não pode ficar em branco")
+    expect(page).to have_content("Razão Social não pode ficar em branco")
     expect(page).to have_content("CNPJ não é válido")
 
   end

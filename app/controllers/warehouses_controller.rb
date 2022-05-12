@@ -50,11 +50,7 @@ class WarehousesController < ApplicationController
   end
 
   def warehouse_params
-    target_warehouse = params.require(:warehouse).permit(:name, :code, :city, :address, :cep, :area, :description)
-
-    target_warehouse[:code] = target_warehouse[:code].upcase
-
-    return target_warehouse
+    target_warehouse = params.require(:warehouse).permit(:name, :code, :city, :address, :zip_code, :area, :description)
   end
 
 

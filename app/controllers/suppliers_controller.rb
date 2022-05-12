@@ -41,6 +41,12 @@ class SuppliersController < ApplicationController
     if @supplier.update(supplier_params)
       flash[:notice] = "Fornecedor editado com sucesso!"
       redirect_to(supplier_path)
+    else
+      flash[:notice] = "Fornecedor não editado"
+      @errors = @supplier.errors.full_messages
+
+      render :edit
     end
+  
   end
 end
