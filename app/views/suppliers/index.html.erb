@@ -1,11 +1,11 @@
 
 
 <%= button_to('Cadastrar Fornecedor', new_supplier_path,
-          method: "get", remote: true, data: { confirm: 'Are you sure?', disable_with: 'loading...' }) %>
+              method: "get" ) %>
 
 <section id="suppliers" class="grid">
   <% @suppliers.each do |w| %>
-    <div class="warehouse">
+    <div class="suppliers">
       <h3><%= link_to w.brand_name, supplier_path(w.id) %></h3>
       <dl>
         <dt><b>Nome</b></dt>

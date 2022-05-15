@@ -47,6 +47,6 @@ class SuppliersController < ApplicationController
 
       render :edit
     end
-  
+
   end
 end

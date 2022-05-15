@@ -2,13 +2,9 @@ require 'rails_helper'
 
 describe 'Usuário visita tela inicial' do
   it 'e vê o nome do app' do
-      #Arrange
-      #Act
-      #Assert
+    visit("/")
 
-      visit("/")
-
-      expect(page).to have_content("Galpões & Estoque")
+    expect(page).to have_content("Galpões & Estoque")
   end
 
   it 'e vê os galpões cadastrados' do

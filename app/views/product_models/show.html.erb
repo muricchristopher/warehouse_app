@@ -1,0 +1,34 @@
+<section>
+  <fieldset>
+    <legend><h2><%= @product.name %></h2></legend>
+    <legend>
+      <p>
+        <strong>Dimensões: </strong>
+         <%= @product.height %>
+        cm x
+        <%= @product.width %>
+        cm x
+        <%= @product.depth %>
+        cm
+      </p>
+       <p>
+        <strong>Peso: </strong>
+        <%= @product.weight %>
+      </p>
+      <p>
+        <strong>SKU: </strong>
+        <%= @product.sku %>
+      </p>
+      <p>
+        <strong>Fornecedor: </strong>
+        <%= link_to @product.supplier.brand_name, supplier_path(@product.supplier_id) %>
+      </p>
+    </legend>
+  </fieldset>
+
+</section>
+
+<%= link_to 'Voltar', product_models_path %>
+
+<script>
+</script>

@@ -1,0 +1,21 @@
+
+
+<%= button_to('Cadastrar Modelo de Produto', new_product_model_path, method: "get") %>
+
+<section id="products" class="grid">
+  <% @products.each do |p| %>
+    <div class="products">
+      <h3><%= link_to p.name, product_model_path(p.id) %></h3>
+      <dl>
+        <dt><b>SKU</b></dt>
+          <dd><%= p.sku %></dd>
+        <dt><b>Fornecedor</b></dt>
+          <dd><%= link_to p.supplier.brand_name, supplier_path(p.supplier_id) %></dd>
+      </dl>
+    </div>
+  <% end %>
+
+  <% if(@products.empty?)%>
+    <p>Nenhum modelo de produto cadastrado!</p>
+  <% end %>
+</section>

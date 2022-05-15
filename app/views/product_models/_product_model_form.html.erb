@@ -1,0 +1,46 @@
+<% if @errors %>
+<div class="alert alert-danger">
+
+  <% @errors.each do |error| %>
+    <p><%= error %></p>
+  <% end %>
+  </div>
+
+<% end %>
+
+
+<%= form_with model: @productModel, local: true, data: { turbo: false }  do |f| %>
+
+  <div>
+    <%= f.label :name %> <br/>
+    <%= f.text_field :name , placeholder:"TV Samsung 32" %>
+  </div>
+  <div>
+    <%= f.label :weight %> <br/>
+    <%= f.number_field :weight , placeholder:"em gramas" %>
+  </div>
+  <div>
+    <%= f.label :width %> <br/>
+    <%= f.number_field :width , placeholder:"em cm" %>
+  </div>
+  <div>
+    <%= f.label :height %> <br/>
+    <%= f.number_field :height , placeholder:"em cm" %>
+  </div>
+  <div>
+    <%= f.label :depth %> <br/>
+    <%= f.number_field :depth, placeholder: "em cm" %>
+  </div>
+  <div>
+    <%= f.label :sku %> <br/>
+    <%= f.text_field :sku, placeholder:"Ex: SAMSU-XP02-TSX0" %>
+  </div>
+  <div>
+    <%= f.label :supplier_id %> <br/>
+    <%= f.collection_select :supplier_id, Supplier.all, :id, :brand_name %>
+  </div>
+  <%= f.submit 'Salvar'%>
+<%end%>
+
+<%= link_to 'Voltar', product_models_path %>
+

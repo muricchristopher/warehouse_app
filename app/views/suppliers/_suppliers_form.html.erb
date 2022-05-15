@@ -12,31 +12,31 @@
 <%= form_with model: @supplier, local: true, data: { turbo: false }  do |f| %>
 
   <div>
-    <%= f.label :corporate_name %>
+    <%= f.label :corporate_name %> <br/>
     <%= f.text_field :corporate_name , placeholder:"BRA Produções Limitadas LITDA" %>
   </div>
   <div>
-    <%= f.label :brand_name %>
+    <%= f.label :brand_name %> <br/>
     <%= f.text_field :brand_name , placeholder:"BRA Produções" %>
   </div>
   <div>
-    <%= f.label :registration_number %>
+    <%= f.label :registration_number %> <br/>
     <%= f.text_field :registration_number , placeholder:"109.210.012/00001-89" %>
   </div>
   <div>
-    <%= f.label :full_address %>
+    <%= f.label :full_address %> <br/>
       <%= f.text_field :full_address, placeholder: "Rua Marechal Tito, 2000" %>
   </div>
       <div>
-        <%= f.label :city %>
+        <%= f.label :city %> <br/>
         <%= f.text_field :city, placeholder:"Guarulhos" %>
       </div>
   <div>
-    <%= f.label :state %>
+    <%= f.label :state %> <br/>
     <%= f.text_field :state, placeholder:"São Paulo" %>
   </div>
   <div>
-    <%= f.label :email %>
+    <%= f.label :email %> <br/>
     <%= f.text_field :email, placeholder:"consultoria@braprodcoes.com.br" %>
   </div>
   <%= f.submit 'Salvar'%>
