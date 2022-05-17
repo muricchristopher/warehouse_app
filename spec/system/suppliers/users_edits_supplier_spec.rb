@@ -1,7 +1,10 @@
 require 'rails_helper'
 
-describe 'Usuário edita um fornecedor' do
+describe 'Usuário autenticado edita um fornecedor' do
   it 'com sucesso' do
+    user = User.create!(email:"testando@teste.com.br", password:123456)
+    login_as(user)
+
     supplier = Supplier.create!(corporate_name: "ABA Produções LTDA", brand_name: "ABA", registration_number:"59291534000167",full_address:"Rua Marechal dos Andares, 1212", city:"São Paulo",
     state:"São Paulo", email:"contato@abaproducuesltda.com.br")
 
@@ -28,6 +31,9 @@ describe 'Usuário edita um fornecedor' do
   end
 
   it 'com dados inválidos ou em branco' do
+    user = User.create!(email:"testando@teste.com.br", password:123456)
+    login_as(user)
+
 
     supplier = Supplier.create!(corporate_name: "ABA Produções LTDA", brand_name: "ABA", registration_number:"59291534000167",full_address:"Rua Marechal dos Andares, 1212", city:"São Paulo",
     state:"São Paulo", email:"contato@abaproducuesltda.com.br")

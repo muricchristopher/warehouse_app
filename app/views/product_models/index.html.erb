@@ -1,19 +1,36 @@
+<div class="text-center mt-2">
+  <div type="button" class="btn btn-outline-primary">
+      <%= button_to('Cadastrar Modelo de Produto', new_product_model_path, method: "get") %>
+  </div>
+</div>
 
 
-<%= button_to('Cadastrar Modelo de Produto', new_product_model_path, method: "get") %>
-
-<section id="products" class="grid">
+<div class="container mt-4 d-flex">
+  <div class="row">
   <% @products.each do |p| %>
-    <div class="products">
-      <h3><%= link_to p.name, product_model_path(p.id) %></h3>
-      <dl>
-        <dt><b>SKU</b></dt>
-          <dd><%= p.sku %></dd>
-        <dt><b>Fornecedor</b></dt>
-          <dd><%= link_to p.supplier.brand_name, supplier_path(p.supplier_id) %></dd>
-      </dl>
+    <div class="col">
+    <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h3 class="card-title"><%= link_to p.name, product_model_path(p.id) %></h3>
+            <p class="card-text">
+              <strong>SKU</strong>: <%= p.sku %> <br>
+               <strong>Fornecedor</strong>: <%=link_to p.supplier.brand_name, supplier_path(p.supplier_id) %> <br>
+              <strong>Peso</strong>: <%= p.weight %>g
+            </p>
+
+            <p class="btn btn-outline-primary">
+              <%= link_to 'Ver detalhes', product_model_path(p.id)%>
+            </p>
+          </div>
+        </div>
     </div>
-  <% end %>
+
+  <%end%>
+  </div>
+
+
+
+
 
   <% if(@products.empty?)%>
     <p>Nenhum modelo de produto cadastrado!</p>

@@ -1,24 +1,41 @@
 
 
-<%= button_to('Cadastrar Fornecedor', new_supplier_path,
-              method: "get" ) %>
+<div class="text-center mt-2">
+  <div type="button" class="btn btn-outline-primary">
+    <%= button_to('Cadastrar Fornecedor', new_supplier_path,
+      method: "get" ) %>
+  </div>
+</div>
 
-<section id="suppliers" class="grid">
-  <% @suppliers.each do |w| %>
-    <div class="suppliers">
-      <h3><%= link_to w.brand_name, supplier_path(w.id) %></h3>
-      <dl>
-        <dt><b>Nome</b></dt>
-          <dd><%= w.corporate_name %></dd>
-        <dt><b>Cidade</b></dt>
-          <dd><%= w.city %></dd>
-        <dt><b>Estado</b></dt>
-        <dd><%= w.state %></dd>
-          <dt><b>Email</b></dt>
-          <dd><%= w.email %></dd>
-      </dl>
+
+<div class="container mt-4 d-flex">
+  <div class="row">
+  <% @suppliers.each do |s| %>
+    <div class="col">
+    <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h3 class="card-title"><%= link_to s.brand_name, supplier_path(s.id) %></h3>
+            <p class="card-text">
+              <strong>Nome Empresarial</strong>: <%= s.corporate_name %> <br>
+              <strong>Cidade</strong>: <%= s.city %> <br>
+              <strong>CNPJ</strong>: <%= s.registration_number %> <br>
+              <strong>E-mail</strong>: <%= s.email %>
+            </p>
+            <p class="btn btn-outline-primary">
+              <%= link_to 'Ver detalhes', supplier_path(s.id)%>
+            </p>
+          </div>
+        </div>
     </div>
-  <% end %>
+
+  <%end%>
+  </div>
+
+
+
+
+
+
 
   <% if(@suppliers.empty?)%>
     <p>Nenhum fornecedor cadastrado!</p>

@@ -1,23 +1,39 @@
 
-<%= button_to('Cadastrar Galpão', new_warehouse_path,
-          method: "get", remote: true, data: { confirm: 'Tem certeza?', disable_with: 'carregando...' }) %>
 
-<section id="warehouses" class="grid">
+<div class="text-center mt-2">
+  <div type="button" class="btn btn-outline-primary">
+    <%= button_to('Cadastrar Galpão', new_warehouse_path,
+            method: "get") %>
+  </div>
+</div>
+
+
+<div class="container mt-4 d-flex ">
+  <div class="row">
   <% @warehouses.each do |w| %>
-    <div class="warehouse">
-      <h3><%= link_to w.name, warehouse_path(w.id) %></h3>
-      <dl>
-        <dt><b>Código</b></dt>
-          <dd><%= w.code %></dd>
-        <dt><b>Cidade</b></dt>
-          <dd><%= w.city %></dd>
-        <dt><b>Área</b></dt>
-          <dd><%= w.area %></dd>
-      </dl>
+    <div class="col ">
+    <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h3 class="card-title"><%= link_to w.name, warehouse_path(w.id) %></h3>
+            <p class="card-text">
+              <strong>Código</strong>: <%= w.code %> <br>
+              <strong>Cidade</strong>: <%= w.city %> <br>
+              <strong>Área</strong>: <%= w.area %>m²
+            </p>
+            <p class="btn btn-outline-primary">
+              <%= link_to 'Ver detalhes', warehouse_path(w.id)%>
+            </p>
+          </div>
+        </div>
     </div>
-  <% end %>
 
-  <% if(@warehouses.empty?)%>
-    <p>Nenhum galpão cadastrado!</p>
-  <% end %>
-</section>
+  <%end%>
+  </div>
+
+
+
+
+
+<% if(@warehouses.empty?)%>
+  <p>Nenhum galpão cadastrado!</p>
+<% end %>

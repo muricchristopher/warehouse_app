@@ -1,7 +1,10 @@
 require 'rails_helper'
 
-describe 'Usuário cadastra um fornecedor' do
+describe 'Usuário autenticado cadastra um fornecedor' do
   it 'a partir do menu' do
+    user = User.create!(email:"testando@teste.com.br", password:123456)
+    login_as(user)
+
     visit(root_path)
 
     click_on("Fornecedores")
@@ -18,6 +21,9 @@ describe 'Usuário cadastra um fornecedor' do
   end
 
   it 'com sucesso' do
+    user = User.create!(email:"testando@teste.com.br", password:123456)
+    login_as(user)
+
     visit(root_path)
 
     click_on("Fornecedores")
@@ -42,6 +48,9 @@ describe 'Usuário cadastra um fornecedor' do
   end
 
   it 'com dados incompletos' do
+    user = User.create!(email:"testando@teste.com.br", password:123456)
+    login_as(user)
+
     visit(root_path)
 
     click_on("Fornecedores")

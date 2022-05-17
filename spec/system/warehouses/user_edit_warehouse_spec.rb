@@ -1,8 +1,10 @@
 require 'rails_helper'
 
-describe 'Usuário edita um galpão' do
+describe 'Usuário autenticado edita um galpão' do
 
   it 'a partir dos detalhes' do
+    user = User.create!(email:"testando@teste.com.br", password:123456)
+    login_as(user)
 
     first_warehouse = Warehouse.create!(name: "Galpão do Rio", code: "SDU", city:"Rio de Janeiro", area: 60_000, zip_code:"08140490", description:"Um belo galpão", address:"Rua")
 
@@ -20,6 +22,9 @@ describe 'Usuário edita um galpão' do
   end
 
   it 'com sucesso' do
+    user = User.create!(email:"testando@teste.com.br", password:123456)
+    login_as(user)
+
     first_warehouse = Warehouse.create!(name: "Galpão do Rio", code: "SDU", city:"Rio de Janeiro", area: 60_000, zip_code:"08140490", description:"Um belo galpão", address:"Rua")
 
     visit("/")
@@ -39,6 +44,9 @@ describe 'Usuário edita um galpão' do
   end
 
   it 'com dados incompletos' do
+    user = User.create!(email:"testando@teste.com.br", password:123456)
+    login_as(user)
+
     Warehouse.create!(name: "Galpão do Rio", code: "GPR", city:"Rio de Janeiro", area: 60_000, zip_code:"08140490", description:"Um belo galpão", address:"Rua")
 
     visit("/")
