@@ -18,9 +18,9 @@
     <nav>
       <ul class="nav nav-pills">
         <li class="nav-item">
-          <p href="#" class="nav-link active" aria-current="page">
-            <%= link_to "Galpões & Estoque", root_path%>
-          </p>
+          <%= link_to root_path do %>
+            <p href="#" class="nav-link active" aria-current="page">Galpões & Estoque</p>
+          <% end %>
         </li>
         <li class="nav-item">
           <p href="#" class="nav-link">
@@ -32,13 +32,19 @@
             <%= link_to "Modelo de Produtos", product_models_path%>
           </p>
         </li>
+
         <% if user_signed_in? %>
+           |
+          <%= current_user.name %>
           <li class="nav-item">
-            <p href="#" class="nav-link">
-              <div class="btn btn-outline-danger">
-                <%= button_to "Sair", destroy_user_session_path, method: :delete %>
-              </div class="btn btn-outline-danger">
-            </p>
+            <p class="nav-link text-muted"><%= current_user.email %></p>
+          </li>
+          <li class="nav-item">
+            <%= button_to destroy_user_session_path, method: :delete do %>
+              <p href="#" class="btn btn-outline-danger mt-2">
+                Sair
+              </p>
+            <% end %>
           </li>
         <% else %>
           <li class="nav-item">
