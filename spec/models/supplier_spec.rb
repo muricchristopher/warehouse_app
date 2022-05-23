@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe Supplier, type: :model do
 
   describe '#valid?' do
-
     it 'false when registration_number is empty' do
       supplier = Supplier.create(corporate_name: "", brand_name: "ABA", registration_number:"59291534000167",full_address:"Rua Marechal dos Andares, 1212", city:"São Paulo",
       state:"São Paulo", email:"contato@abaproducuesltda.com.br")

@@ -57,9 +57,6 @@ RSpec.describe Warehouse, type: :model do
       expect(warehouse).to_not be_valid
     end
 
-
-  end
-
     it 'false code format in lowcase' do
       warehouse = Warehouse.create(name: "Rio", code: "sdu", city:"Rio de Janeiro", area: 60_000, zip_code:"07192100", description:"Um belo galpão", address:"Rua")
 
@@ -67,6 +64,21 @@ RSpec.describe Warehouse, type: :model do
 
       expect(validation).to eq(true)
     end
+
+
+  end
+
+  describe '#full_description' do
+    it 'should return code and warehouse name' do
+
+      warehouse = Warehouse.new(name: "Galpão RJ", code: "SDU", city:"Rio de Janeiro", area: 60_000, zip_code:"82382", description:"Um belo galpão", address:"Rua")
+
+      res = warehouse.full_description
+
+      expect(res).to eq("SDU | Galpão RJ")
+    end
+  end
+
 
 
 

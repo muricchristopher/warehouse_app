@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   def full_description
-    "#{name} - #{email}"
+    name != nil ? "#{name} - #{email}" : "#{email}"
   end
 end

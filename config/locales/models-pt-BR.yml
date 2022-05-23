@@ -28,4 +28,5 @@
           warehouse: "Galpão"
           user_id: "Usuário"
           user: "Usuário"
+          code: "Código"
           estimated_delivery_date: "Data Prevista de Entrega"
