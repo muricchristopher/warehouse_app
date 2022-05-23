@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Order, type: :model do
 
   describe '#valid?' do
-    it 'false when code is nil' do
+    it 'true when all required attributes are fullfilled' do
       user = User.create!(name:"João", email:"joao@gmail.com", password:"123456")
 
       supplier = Supplier.create!(brand_name:"Samsung", corporate_name:"Samsung Eletrônicos LTDA", registration_number: "89012347000180", email:"sac@samsung.com.br")
@@ -14,6 +14,51 @@ RSpec.describe Order, type: :model do
 
       expect(order).to be_valid
     end
+
+    it 'false when estimated_delivery_date is empty' do
+      order = Order.new(estimated_delivery_date: '')
+
+      order.valid?
+
+      res = order.errors.include? :estimated_delivery_date
+
+      expect(res).to be(true)
+      expect(order.errors[:estimated_delivery_date]).to include("não pode ficar em branco")
+    end
+
+    it 'false when estimated_delivery_date is in the past' do
+      order = Order.new(estimated_delivery_date: 10.day.ago)
+
+      order.valid?
+
+      res = order.errors.include? :estimated_delivery_date
+
+      expect(res).to be(true)
+      expect(order.errors[:estimated_delivery_date]).to include("deve ser futura")
+    end
+
+    it 'false when estimated_delivery_date' do
+      order = Order.new(estimated_delivery_date: Date.today)
+
+      order.valid?
+
+      res = order.errors.include? :estimated_delivery_date
+
+      expect(res).to be(true)
+      expect(order.errors[:estimated_delivery_date]).to include("deve ser futura")
+    end
+
+    it 'true when estimated_delivery_date is in future' do
+      order = Order.new(estimated_delivery_date: Date.tomorrow)
+
+      order.valid?
+
+      res = order.errors.include? :estimated_delivery_date
+
+      expect(res).to be(false)
+      expect(order.errors[:estimated_delivery_date]).not_to include("deve ser futura")
+    end
+
   end
   describe 'Generate a random and unique code' do
     it 'when create a new order' do
