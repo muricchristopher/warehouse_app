@@ -11,6 +11,6 @@ Rails.application.routes.draw do
 
   resources :suppliers, only: [:index, :show, :new, :create, :edit, :update]
   resources :warehouses, only: [:show, :update, :create, :new, :edit, :destroy]
-  resources :product_models, only: [:index, :show, :new, :create]
+  resources :product_models, only: [:index, :show, :new, :create, :destroy, :edit, :update]
   resources :orders, only: [:index, :show, :new, :create]
 end

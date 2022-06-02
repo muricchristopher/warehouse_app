@@ -1,36 +1,51 @@
 <section>
+  <h2><%= @supplier.brand_name %></h2>
+  <hr>
 
-  <fieldset>
-    <legend><h2><%= @supplier.brand_name %></h2></legend>
-    <legend>
-      <p>
-        <strong>Razão Social: </strong>
-        <%= @supplier.corporate_name %>
-      </p>
-      <p>
-        <strong>Número de Registro: </strong>
-        <%= @supplier.registration_number %>
-      </p>
-       <p>
-        <strong>Endereço: </strong>
-        <%= @supplier.full_address %>
-      </p>
-       <p>
-        <strong>Cidade: </strong>
-        <%= @supplier.city %>
-      </p>
-      <p>
-        <strong>Estado: </strong>
-        <%= @supplier.state %>
-      </p>
-      <p>
-        <strong>Email: </strong>
-        <%= @supplier.email %>m2
-      </p>
-    </legend>
-  </fieldset>
+  <div class="list-group mb-3">
+  <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+    <div class="d-flex w-100 justify-content-between">
+      <h4 class="mb-1 fw-bold">Razão Social:</h4>
+    </div>
+    <p class="mb-1"><%= @supplier.corporate_name %></p>
+  </a>
+  <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h4 class="mb-1 fw-bold">CNPJ:</h4>
+    </div>
+    <p class="mb-1"><%= @supplier.registration_number %></p>
+  </a>
+  <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h4 class="mb-1 fw-bold">Endereço: </h4>
+    </div>
+    <p class="mb-1"><%= @supplier.full_address %></p>
+  </a>
+  <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h4 class="mb-1 fw-bold">Cidade: </h4>
+    </div>
+    <p class="mb-1"><%= @supplier.city %></p>
+  </a>
+  <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h4 class="mb-1 fw-bold">Estado: </h4>
+    </div>
+    <p class="mb-1"><%= @supplier.state %></p>
+  </a>
+  <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h4 class="mb-1 fw-bold">Email:</h4>
+    </div>
+    <p class="mb-1"><%= @supplier.email %></p>
+  </a>
+</div>
 
+  <div class="section-buttons d-flex gap-2 flex-row-reverse">
+    <%= button_to 'Deletar', supplier_path, method: :delete, class:"btn btn-lg btn-danger" %>
+    <%= button_to 'Editar', edit_supplier_path, method: :get, class:"btn btn-lg btn-warning" %>
+    <%= button_to 'Voltar', suppliers_path, method: :get, class:"btn btn-lg btn-info" %>
+  </div>
 </section>
 
-<%= link_to 'Editar', edit_supplier_path %>
-<%= link_to 'Voltar', suppliers_path %>
+

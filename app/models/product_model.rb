@@ -6,9 +6,15 @@ class ProductModel < ApplicationRecord
   validates :sku, length: { is: 20}
   validates :sku, uniqueness: true
   validates :weight, :width, :height, :depth, numericality: { greater_than: 1,  only_integer: true }
+
+  def full_description
+    "#{name} | #{supplier.brand_name}"
+  end
+
   private
 
   def upcase_sku
     self.sku = self.sku.upcase
   end
 end
+

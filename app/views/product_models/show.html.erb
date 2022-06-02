@@ -1,34 +1,39 @@
 <section>
-  <fieldset>
-    <legend><h2><%= @product.name %></h2></legend>
-    <legend>
-      <p>
-        <strong>Dimensões: </strong>
-         <%= @product.height %>
-        cm x
-        <%= @product.width %>
-        cm x
-        <%= @product.depth %>
-        cm
-      </p>
-       <p>
-        <strong>Peso: </strong>
-        <%= @product.weight %>
-      </p>
-      <p>
-        <strong>SKU: </strong>
-        <%= @product.sku %>
-      </p>
-      <p>
-        <strong>Fornecedor: </strong>
-        <%= link_to @product.supplier.brand_name, supplier_path(@product.supplier_id) %>
-      </p>
-    </legend>
-  </fieldset>
+  <h2><%= @product.full_description %></h2>
+  <hr>
 
+  <div class="list-group mb-3">
+  <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+    <div class="d-flex w-100 justify-content-between">
+      <h4 class="mb-1 fw-bold">Dimensões:</h4>
+    </div>
+    <p class="mb-1"><%= @product.height %>cm x <%= @product.width %>cm x <%= @product.depth %>cm</p>
+  </a>
+  <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h4 class="mb-1 fw-bold">Peso:</h4>
+    </div>
+    <p class="mb-1"><%= @product.weight %>kg</p>
+  </a>
+  <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h4 class="mb-1 fw-bold">SKU:</h4>
+    </div>
+    <p class="mb-1"><%= @product.sku %></p>
+  </a>
+  <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h4 class="mb-1 fw-bold">Fornecedora: </h4>
+    </div>
+    <p class="mb-1"><%= @product.supplier.corporate_name %></p>
+  </a>
+</div>
+
+  <div class="section-buttons d-flex gap-2 flex-row-reverse">
+    <%= button_to 'Deletar', product_model_path, method: :delete, class:"btn btn-lg btn-danger" %>
+    <%= button_to 'Editar', edit_product_model_path, method: :get, class:"btn btn-lg btn-warning" %>
+    <%= button_to 'Voltar', product_models_path, method: :get, class:"btn btn-lg btn-info" %>
+  </div>
 </section>
 
-<%= link_to 'Voltar', product_models_path %>
 
-<script>
-</script>

@@ -1,40 +1,51 @@
 <section>
+  <h2><%= @warehouse.name %></h2>
+  <hr>
 
-  <fieldset>
-    <legend><h2><%= @warehouse.name %></h2></legend>
-    <legend>
-      <p>
-        <strong>Descrição: </strong>
-        <%= @warehouse.description %>
-      </p>
-      <p>
-        <strong>Código: </strong>
-        <%= @warehouse.code %>
-      </p>
-       <p>
-        <strong>Endereço: </strong>
-        <%= @warehouse.address %>
-      </p>
-       <p>
-        <strong>Cidade: </strong>
-        <%= @warehouse.city %>
-      </p>
-      <p>
-        <strong>CEP: </strong>
-        <%= @warehouse.zip_code %>
-      </p>
-      <p>
-        <strong>Area: </strong>
-        <%= @warehouse.area %>m2
-      </p>
-    </legend>
-  </fieldset>
+  <div class="list-group mb-3">
+  <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+    <div class="d-flex w-100 justify-content-between">
+      <h4 class="mb-1 fw-bold">Descrição:</h4>
+    </div>
+    <p class="mb-1"><%= @warehouse.description %></p>
+  </a>
+  <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h4 class="mb-1 fw-bold">Código:</h4>
+    </div>
+    <p class="mb-1"><%= @warehouse.code %></p>
+  </a>
+  <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h4 class="mb-1 fw-bold">Endereço</h4>
+    </div>
+    <p class="mb-1"><%= @warehouse.address %></p>
+  </a>
+  <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h4 class="mb-1 fw-bold">Cidade</h4>
+    </div>
+    <p class="mb-1"><%= @warehouse.city %></p>
+  </a>
+  <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h4 class="mb-1 fw-bold">CEP</h4>
+    </div>
+    <p class="mb-1"><%= @warehouse.zip_code %></p>
+  </a>
+  <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h4 class="mb-1 fw-bold">Área</h4>
+    </div>
+    <p class="mb-1"><%= @warehouse.area %>m²</p>
+  </a>
+</div>
 
+  <div class="section-buttons d-flex gap-2 flex-row-reverse">
+    <%= button_to 'Deletar', warehouse_path, method: :delete, class:"btn btn-lg btn-danger" %>
+    <%= button_to 'Editar', edit_warehouse_path, method: :get, class:"btn btn-lg btn-warning" %>
+    <%= button_to 'Voltar', root_path, method: :get, class:"btn btn-lg btn-info" %>
+  </div>
 </section>
 
-<%= button_to('Deletar Galpão', warehouse_path,
-          method: "delete", remote: true, data: { confirm: 'Are you sure?', disable_with: 'loading...' }) %>
 
-<%= link_to 'Editar', edit_warehouse_path %>
-<br>
-<%= link_to 'Voltar', root_path %>

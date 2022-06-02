@@ -1,35 +1,36 @@
 <%= form_with model: @productModel, local: true, data: { turbo: false }  do |f| %>
 
   <div>
-    <%= f.label :name %> <br/>
-    <%= f.text_field :name , placeholder:"TV Samsung 32" %>
+    <%= f.label :name, class:"form-label" %>
+    <%= f.text_field :name , placeholder:"TV Samsung 32", class:"form-control form-control-lg mb-3" %>
   </div>
   <div>
-    <%= f.label :weight %> <br/>
-    <%= f.number_field :weight , placeholder:"em gramas" %>
+    <%= f.label :weight, class:"form-label"%>
+    <%= f.number_field :weight , placeholder:"em gramas", class:"form-control form-control-lg mb-3" %>
   </div>
   <div>
-    <%= f.label :width %> <br/>
-    <%= f.number_field :width , placeholder:"em cm" %>
+    <%= f.label :width, class:"form-label" %>
+    <%= f.number_field :width , placeholder:"em cm", class:"form-control form-control-lg mb-3" %>
   </div>
   <div>
-    <%= f.label :height %> <br/>
-    <%= f.number_field :height , placeholder:"em cm" %>
+    <%= f.label :height, class:"form-label" %>
+    <%= f.number_field :height , placeholder:"em cm", class:"form-control form-control-lg mb-3" %>
   </div>
   <div>
-    <%= f.label :depth %> <br/>
-    <%= f.number_field :depth, placeholder: "em cm" %>
+    <%= f.label :depth, class:"form-label" %>
+    <%= f.number_field :depth, placeholder: "em cm", class:"form-control form-control-lg mb-3" %>
   </div>
   <div>
-    <%= f.label :sku %> <br/>
-    <%= f.text_field :sku, placeholder:"Ex: SAMSU-XP02-TSX0" %>
+    <%= f.label :sku, class:"form-label" %>
+    <%= f.text_field :sku, placeholder:"Ex: SAMSU-XP02-TSX0", class:"form-control form-control-lg mb-3" %>
   </div>
   <div>
-    <%= f.label :supplier_id %> <br/>
-    <%= f.collection_select :supplier_id, Supplier.all, :id, :brand_name %>
+    <%= f.label :supplier_id, class:"form-label" %>
+    <%= f.collection_select :supplier_id, Supplier.all, :id, :brand_name, {},{:class=>'form-select form-select-lg mb-3'} %>
   </div>
-  <%= f.submit 'Salvar'%>
+  <div class="form-buttons d-flex gap-2 mt-4">
+    <%= f.submit 'Salvar', class:"btn btn-outline-success btn-lg"%>
 <%end%>
 
-<%= link_to 'Voltar', product_models_path %>
-
+<%= button_to 'Voltar', product_models_path, method: :get, class:"btn btn-outline-danger btn-lg" %>
+</div>

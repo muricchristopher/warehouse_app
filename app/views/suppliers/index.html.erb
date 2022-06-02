@@ -1,34 +1,48 @@
+<div class="navigation d-flex justify-content-between align-content-center gap-2 ps-5 pe-5 border border-1">
 
-
-<div class="text-center mt-2">
-  <div type="button" class="btn btn-outline-primary">
-    <%= button_to('Cadastrar Fornecedor', new_supplier_path,
-      method: "get" ) %>
+  <div class="section-title">
+    <h1 class="text-black mt-2 fs-2">Fornecedores</h1>
   </div>
+
+    <%= button_to('Cadastrar Fornecedor', new_supplier_path, method: "get", class:"btn btn-outline-primary btn-lg" ) %>
+</div>
 </div>
 
 
-<div class="container mt-4 d-flex">
+
+<div class="content mt-4 d-flex">
   <div class="row">
   <% @suppliers.each do |s| %>
     <div class="col">
-    <div class="card" style="width: 18rem;">
+    <div class="card mb-3" style="width: 18rem;">
           <div class="card-body">
-            <h3 class="card-title"><%= link_to s.brand_name, supplier_path(s.id) %></h3>
-            <p class="card-text">
-              <strong>Nome Empresarial</strong>: <%= s.corporate_name %> <br>
-              <strong>Cidade</strong>: <%= s.city %> <br>
-              <strong>CNPJ</strong>: <%= s.registration_number %> <br>
-              <strong>E-mail</strong>: <%= s.email %>
+            <h3 class="card-title mb-3"><%= link_to s.brand_name, supplier_path(s.id) %></h3>
+
+            <p class="card-text mb-0">
+              <h5 class="fw-bolder">Nome Empresarial: </h5>
+              <p class="text-black"><%= s.corporate_name %><p>
             </p>
-            <p class="btn btn-outline-primary">
-              <%= link_to 'Ver detalhes', supplier_path(s.id)%>
+            <p class="card-text mb-0">
+              <h5 class="fw-bolder">Cidade: </h5>
+              <p class="text-black"><%= s.city %><p>
             </p>
+            <p class="card-text mb-0">
+              <h5 class="fw-bolder">CNPJ: </h5>
+              <p class="text-black"><%= s.registration_number %><p>
+            </p>
+            <p class="card-text mb-0">
+              <h5 class="fw-bolder">E-mail: </h5>
+              <p class="text-black"><%= s.email %><p>
+            </p>
+              <%= link_to 'Ver detalhes', supplier_path(s.id), class:"btn btn-outline-primary"%>
           </div>
         </div>
     </div>
 
   <%end%>
+    <% if(@suppliers.empty?)%>
+    <p class="text-black-50 text-center">Nenhum fornecedor cadastrado!</p>
+  <% end %>
   </div>
 
 
@@ -37,7 +51,5 @@
 
 
 
-  <% if(@suppliers.empty?)%>
-    <p>Nenhum fornecedor cadastrado!</p>
-  <% end %>
-</section>
+
+

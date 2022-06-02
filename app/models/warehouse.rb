@@ -5,6 +5,8 @@ class Warehouse < ApplicationRecord
   validates :name, uniqueness: true
   validates :zip_code, format: { with: /\A\d{5}-?\d{3}\z/  }
 
+  has_many :orders
+
   def full_description
     "#{self.code} | #{self.name}"
   end
