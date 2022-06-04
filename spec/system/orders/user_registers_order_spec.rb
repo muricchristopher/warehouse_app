@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Usuário cadastra um pedio" do
+describe "Usuário cadastra um pedido" do
 
   it 'com sucesso' do
     user = User.create!(name:"João", email:"joao@gmail.com", password:"123456")
@@ -22,7 +22,7 @@ describe "Usuário cadastra um pedio" do
     select 'outubro', :from => 'order_estimated_delivery_date_2i'
     select '2022', :from => 'order_estimated_delivery_date_1i'
 
-    click_on("Cadastrar")
+    click_on("Salvar")
 
     expect(page).to have_content("Pedido cadastrado com sucesso!")
     expect(page).to have_content("Pedido: #32D5F9A10A")

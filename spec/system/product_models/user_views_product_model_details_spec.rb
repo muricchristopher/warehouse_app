@@ -15,10 +15,14 @@ describe 'Usuário acessa os detalhes de um modelo de produto' do
       click_on("TV 32")
 
       expect(page).to have_content("TV 32")
-      expect(page).to have_content("Dimensões: 45 cm x 70 cm x 10 cm")
-      expect(page).to have_content("Peso: 900")
-      expect(page).to have_content("SKU: TV32SAMSUNG12M3MDJFH")
-      expect(page).to have_content("Fornecedor: Samsung")
+      expect(page).to have_content("Dimensões:")
+      expect(page).to have_content("45cm x 70cm x 10cm")
+      expect(page).to have_content("Peso:")
+      expect(page).to have_content("900kg")
+      expect(page).to have_content("SKU:")
+      expect(page).to have_content("TV32SAMSUNG12M3MDJFH")
+      expect(page).to have_content("Fornecedor:")
+      expect(page).to have_content("Samsung")
 
       click_on("Voltar")
       expect(current_path).to eq(product_models_path)
@@ -35,7 +39,7 @@ describe 'Usuário acessa os detalhes de um modelo de produto' do
       visit(root_path)
       click_on("Modelo de Produtos")
       click_on("TV 32")
-      click_on("Samsung")
+      click_on("Samsung Eletrônicos LTDA")
 
       expect(page).to have_content("Samsung Eletrônicos LTDA")
       expect(page).to have_content("89012347000180")

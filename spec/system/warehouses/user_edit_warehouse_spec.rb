@@ -39,8 +39,10 @@ describe 'Usuário autenticado edita um galpão' do
 
     expect(page).to have_content("Galpão editado com sucesso!")
     expect(page).to have_content("Meu Galpão Personalizado")
-    expect(page).to have_content("Código: GPT")
-    expect(page).to have_content("Descrição: Galpão editado")
+    expect(page).to have_content("Código:")
+    expect(page).to have_content("GPT")
+    expect(page).to have_content("Descrição:")
+    expect(page).to have_content("Galpão editado")
   end
 
   it 'com dados incompletos' do

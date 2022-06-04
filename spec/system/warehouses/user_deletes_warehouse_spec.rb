@@ -9,7 +9,7 @@ describe 'Usuário autenticado remove um galpão' do
 
     visit("/")
     click_on("Galpão do Rio")
-    click_on("Deletar Galpão")
+    click_on("Deletar")
 
     expect(page).to have_content("Galpão removido com sucesso!")
     expect(page).to_not have_content("Galpão do Rio")
@@ -28,7 +28,7 @@ describe 'Usuário autenticado remove um galpão' do
     visit("/")
 
     click_on("Galpão Rio")
-    click_on("Deletar Galpão")
+    click_on("Deletar")
 
     expect(page).to have_content("Galpão removido com sucesso!")
     expect(page).to_not have_content("Galpão do Rio")
