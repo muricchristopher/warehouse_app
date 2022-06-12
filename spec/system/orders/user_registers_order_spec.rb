@@ -30,8 +30,30 @@ describe "Usuário cadastra um pedido" do
     expect(page).to have_content("Fornecedor: Samsung Eletrônicos LTDA")
     expect(page).to have_content("Data Prevista de Entrega: 11/10/2022")
     expect(page).to have_content("Usuário responsável: João - joao@gmail.com")
+  end
 
+  it 'com dados incompletos ou inválidos' do
+    user = User.create!(name:"João", email:"joao@gmail.com", password:"123456")
+    supplier = Supplier.create!(brand_name:"Samsung", corporate_name:"Samsung Eletrônicos LTDA", registration_number: "89012347000180", email:"sac@samsung.com.br")
+    warehouse = Warehouse.create!(name: "Galpão do Rio", code: "SDU", city:"Rio de Janeiro", area: 60_000, zip_code:"08140490", description:"Um belo galpão", address:"Rua")
 
+    allow(SecureRandom).to receive(:hex).and_return("32D5F9A10A")
+
+    login_as(user)
+
+    visit(root_path)
+
+    click_on("Cadastrar Pedido")
+
+    select("Samsung Eletrônicos LTDA", from:"Fornecedor")
+
+    select '11', :from => 'order_estimated_delivery_date_3i'
+    select 'janeiro', :from => 'order_estimated_delivery_date_2i'
+    select '2022', :from => 'order_estimated_delivery_date_1i'
+
+    click_on("Salvar")
+    expect(page).to have_content("Galpão é obrigatório(a)")
+    expect(page).to have_content("Data Prevista de Entrega deve ser futura")
   end
 
 

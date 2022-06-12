@@ -35,9 +35,6 @@ class ProductModelsController < ApplicationController
   end
 
   def create
-
-
-
     @productModel = ProductModel.new(product_model_params)
 
     if @productModel.save
