@@ -1,4 +1,4 @@
-class Api::V1::WarehousesController < ActionController::API
+class Api::V1::WarehousesController < Api::V1::ApiController
   before_action :warehouse_params, only: [:create]
   rescue_from ActiveRecord::ActiveRecordError, with: :return_500
   rescue_from ActiveRecord::RecordNotFound, with: :return_404
